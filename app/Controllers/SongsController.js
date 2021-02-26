@@ -18,8 +18,8 @@ function _drawPlaylist() {
 }
 
 function _drawActiveSong(){
-  if(ProxyState.song){
-    document.getElementById("active-song").innerHTML = ProxyState.song.Template
+  if(ProxyState.activeSong){
+    document.getElementById("active-song").innerHTML = ProxyState.activeSong.Template
   }else {
     document.getElementById("active-song").innerHTML = ""
   }

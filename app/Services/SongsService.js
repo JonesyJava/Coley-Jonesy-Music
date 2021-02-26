@@ -50,8 +50,8 @@ class SongsService {
     //TODO you only have an id, you will need to find it in the store before you can post it
     //TODO After posting it what should you do?
     try {
-      let activeSong = ProxyState.songs.find(s => s._id == _id)
-      ProxyState.song = activeSong
+      let activeSong = await ProxyState.songs.find(s => s._id == _id)
+      ProxyState.activeSong = activeSong
       console.log(activeSong)
     } catch (error) {
       console.error(error)
@@ -60,8 +60,8 @@ class SongsService {
 
   async addSong(){
     try {
-      delete ProxyState.song._id
-      const res = await sandBoxApi.post("", ProxyState.song)
+      delete ProxyState.activeSong._id
+      const res = await sandBoxApi.post("", ProxyState.activeSong)
       this.getMySongs()
     } catch (error) {
       console.error(error)
